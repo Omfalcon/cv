@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shubhi Sharma — Academic Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF8F3;
+    --cream-dark: #F0EDE4;
+    --ink: #1A1714;
+    --ink-muted: #6B6560;
+    --ink-light: #9E9890;
+    --teal: #0F6E56;
+    --teal-light: #E1F5EE;
+    --teal-mid: #1D9E75;
+    --gold: #BA7517;
+    --gold-light: #FAEEDA;
+    --coral: #D85A30;
+    --coral-light: #FAECE7;
+    --border: rgba(26,23,20,0.10);
+    --border-strong: rgba(26,23,20,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,248,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem; height: 60px;
+  }
+  .nav-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem; color: var(--ink);
+    text-decoration: none; letter-spacing: -0.01em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.8rem; text-decoration: none; color: var(--ink-muted);
+    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* HERO */
+  .hero {
+    padding-top: 60px;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+  .hero-left {
+    padding: 6rem 4rem 4rem 5rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--teal); font-weight: 500; margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 2rem; height: 1px; background: var(--teal);
+  }
+  h1.hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 1.05; letter-spacing: -0.02em; color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  h1.hero-name em { font-style: italic; color: var(--teal); }
+  .hero-title {
+    font-size: 1.05rem; color: var(--ink-muted); font-weight: 300;
+    margin-bottom: 2.5rem; line-height: 1.6;
+  }
+  .hero-meta { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 3rem; }
+  .hero-meta-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.9rem; color: var(--ink-muted);
+  }
+  .hero-meta-item .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--teal); flex-shrink: 0;
+  }
+  .hero-meta-item a { color: var(--teal); text-decoration: none; }
+  .hero-meta-item a:hover { text-decoration: underline; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--teal); color: #fff;
+    border: none; border-radius: 4px;
+    padding: 0.75rem 2rem; font-size: 0.85rem;
+    font-family: 'DM Sans', sans-serif; font-weight: 500;
+    letter-spacing: 0.04em; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #0F6E56; transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; color: var(--ink);
+    border: 1px solid var(--border-strong); border-radius: 4px;
+    padding: 0.75rem 2rem; font-size: 0.85rem;
+    font-family: 'DM Sans', sans-serif; font-weight: 500;
+    letter-spacing: 0.04em; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-1px); }
+
+  .hero-right {
+    background: var(--teal);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 4rem;
+  }
+  .hero-right-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse at 80% 20%, rgba(29,158,117,0.4) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(8,80,65,0.6) 0%, transparent 60%);
+  }
+  .hero-stats {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px; padding: 1.5rem;
+  }
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem; color: #fff; line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.7); letter-spacing: 0.05em; }
+  .hero-right-quote {
+    position: relative; z-index: 1;
+    margin-bottom: 2.5rem;
+    font-family: 'DM Serif Display', serif;
+    font-style: italic; font-size: 1.4rem; color: rgba(255,255,255,0.85);
+    line-height: 1.4; max-width: 340px;
+  }
+  .hero-right-quote::before {
+    content: '"'; font-size: 5rem; color: rgba(255,255,255,0.15);
+    position: absolute; top: -1.5rem; left: -0.5rem;
+    font-family: 'DM Serif Display', serif; line-height: 1;
+  }
+
+  /* SECTIONS */
+  section { scroll-margin-top: 60px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; padding: 5rem 2.5rem; }
+  .section-header { margin-bottom: 3.5rem; }
+  .section-label {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--teal); font-weight: 500; margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--teal-light); }
+  h2.section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    letter-spacing: -0.02em; color: var(--ink);
+  }
+  h2.section-title em { font-style: italic; color: var(--teal); }
+
+  /* SUMMARY */
+  #summary { background: var(--cream); }
+  .summary-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
+  .summary-text p {
+    font-size: 1.08rem; color: var(--ink-muted); line-height: 1.85;
+    margin-bottom: 1.5rem; font-weight: 300;
+  }
+  .summary-text p strong { color: var(--ink); font-weight: 500; }
+  .strengths-list { display: flex; flex-direction: column; gap: 1rem; }
+  .strength-item {
+    padding: 1rem 1.25rem;
+    border-left: 2px solid var(--teal);
+    background: var(--teal-light);
+    border-radius: 0 4px 4px 0;
+  }
+  .strength-item h4 { font-size: 0.85rem; font-weight: 500; color: var(--teal); margin-bottom: 0.2rem; }
+  .strength-item p { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.5; }
+
+  /* EDUCATION */
+  #education { background: var(--cream-dark); }
+  .edu-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 2.5rem;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 1.5rem; align-items: start;
+    position: relative; overflow: hidden;
+  }
+  .edu-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: var(--teal);
+  }
+  .edu-degree {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem; color: var(--ink); margin-bottom: 0.5rem;
+  }
+  .edu-institution { font-size: 1rem; color: var(--teal); font-weight: 500; margin-bottom: 1rem; }
+  .edu-details { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .edu-badge {
+    font-size: 0.78rem; padding: 0.3rem 0.85rem;
+    border-radius: 20px; font-weight: 500; letter-spacing: 0.03em;
+  }
+  .badge-gold { background: var(--gold-light); color: var(--gold); }
+  .badge-teal { background: var(--teal-light); color: var(--teal); }
+  .badge-coral { background: var(--coral-light); color: var(--coral); }
+  .edu-cgpa {
+    text-align: right;
+  }
+  .cgpa-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem; color: var(--teal); line-height: 1;
+  }
+  .cgpa-label { font-size: 0.75rem; color: var(--ink-muted); margin-top: 0.25rem; }
+
+  /* EXPERIENCE */
+  #experience { background: var(--cream); }
+  .exp-timeline { position: relative; }
+  .exp-timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: var(--border-strong);
+  }
+  .exp-item {
+    padding-left: 2.5rem; padding-bottom: 3rem; position: relative;
+  }
+  .exp-item::before {
+    content: ''; position: absolute; left: -4px; top: 8px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--teal); border: 2px solid var(--cream);
+  }
+  .exp-item.primary::before { width: 13px; height: 13px; left: -6px; }
+  .exp-meta {
+    display: flex; align-items: center; gap: 1rem;
+    flex-wrap: wrap; margin-bottom: 0.5rem;
+  }
+  .exp-period {
+    font-size: 0.75rem; color: var(--ink-light);
+    letter-spacing: 0.05em;
+  }
+  .exp-badge {
+    font-size: 0.72rem; padding: 0.2rem 0.7rem;
+    background: var(--teal-light); color: var(--teal);
+    border-radius: 20px; font-weight: 500;
+  }
+  .exp-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem; color: var(--ink); margin-bottom: 0.25rem;
+  }
+  .exp-org { font-size: 0.9rem; color: var(--teal); font-weight: 500; margin-bottom: 1.25rem; }
+  .exp-desc { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.7; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .exp-tag {
+    font-size: 0.75rem; padding: 0.25rem 0.7rem;
+    background: var(--cream-dark); color: var(--ink-muted);
+    border-radius: 3px; border: 1px solid var(--border);
+  }
+
+  /* RESEARCH */
+  #research { background: var(--cream-dark); }
+  .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .research-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .research-card:hover { border-color: var(--teal); transform: translateY(-3px); }
+  .research-icon {
+    width: 42px; height: 42px; border-radius: 8px;
+    background: var(--teal-light); color: var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; margin-bottom: 1rem;
+  }
+  .research-card h3 { font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
+  .research-card p { font-size: 0.83rem; color: var(--ink-muted); line-height: 1.6; }
+
+  /* IP & ACHIEVEMENTS */
+  #achievements { background: var(--cream); }
+  .ip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+  .ip-card {
+    border-radius: 10px; padding: 2rem; text-align: center;
+  }
+  .ip-card.gold { background: var(--gold-light); }
+  .ip-card.teal { background: var(--teal-light); }
+  .ip-card.coral { background: var(--coral-light); }
+  .ip-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.5rem; line-height: 1; margin-bottom: 0.5rem;
+  }
+  .ip-card.gold .ip-number { color: var(--gold); }
+  .ip-card.teal .ip-number { color: var(--teal); }
+  .ip-card.coral .ip-number { color: var(--coral); }
+  .ip-label { font-size: 0.85rem; font-weight: 500; }
+  .ip-card.gold .ip-label { color: var(--gold); }
+  .ip-card.teal .ip-label { color: var(--teal); }
+  .ip-card.coral .ip-label { color: var(--coral); }
+
+  .certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .cert-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1.25rem; border: 1px solid var(--border);
+    border-radius: 8px; background: var(--cream);
+  }
+  .cert-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--teal); flex-shrink: 0; margin-top: 6px;
+  }
+  .cert-item h4 { font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; }
+  .cert-item p { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.5; }
+
+  /* LEADERSHIP */
+  #leadership { background: var(--cream-dark); }
+  .leadership-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .leadership-section h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem; color: var(--ink); margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+  }
+  .leadership-item {
+    display: flex; gap: 1rem; margin-bottom: 1.25rem;
+  }
+  .lead-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    background: var(--teal-light); border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--teal); font-size: 1rem;
+  }
+  .leadership-item h4 { font-size: 0.88rem; font-weight: 500; color: var(--ink); margin-bottom: 0.25rem; }
+  .leadership-item p { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.5; }
+
+  /* OUTREACH */
+  #outreach { background: var(--cream); }
+  .outreach-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .outreach-card {
+    border: 1px solid var(--border); border-radius: 10px;
+    overflow: hidden;
+  }
+  .outreach-card-top {
+    padding: 1.5rem; border-bottom: 1px solid var(--border);
+  }
+  .outreach-card-top h3 { font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
+  .outreach-card-body { padding: 1.25rem; }
+  .outreach-card-body p { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.6; }
+
+  /* SKILLS */
+  #skills { background: var(--cream-dark); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+  .skill-group h3 {
+    font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); font-weight: 500; margin-bottom: 1rem;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    font-size: 0.82rem; padding: 0.35rem 0.9rem;
+    background: var(--cream); color: var(--ink-muted);
+    border: 1px solid var(--border); border-radius: 4px;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .skill-tag:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* CONTACT */
+  #contact { background: var(--teal); }
+  #contact .section-label { color: rgba(255,255,255,0.7); }
+  #contact .section-label::after { background: rgba(255,255,255,0.2); }
+  #contact h2.section-title { color: #fff; }
+  #contact h2.section-title em { color: rgba(255,255,255,0.7); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .contact-info p { color: rgba(255,255,255,0.75); font-size: 1rem; font-weight: 300; line-height: 1.8; margin-bottom: 2rem; }
+  .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-item { display: flex; align-items: center; gap: 1rem; }
+  .contact-item-icon {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 1rem; flex-shrink: 0;
+  }
+  .contact-item-text span { display: block; font-size: 0.75rem; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; margin-bottom: 0.1rem; }
+  .contact-item-text a, .contact-item-text p.ci { font-size: 0.9rem; color: #fff; text-decoration: none; margin: 0; }
+  .contact-item-text a:hover { text-decoration: underline; }
+  .contact-card {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px; padding: 2.5rem;
+  }
+  .contact-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem; color: #fff; margin-bottom: 0.75rem;
+  }
+  .contact-card p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 2rem; line-height: 1.7; }
+  .contact-card .btn-white {
+    background: #fff; color: var(--teal);
+    border: none; border-radius: 4px;
+    padding: 0.75rem 2rem; font-size: 0.85rem;
+    font-family: 'DM Sans', sans-serif; font-weight: 500;
+    letter-spacing: 0.04em; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: transform 0.15s;
+  }
+  .contact-card .btn-white:hover { transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink); color: rgba(255,255,255,0.45);
+    text-align: center; padding: 2rem;
+    font-size: 0.82rem;
+  }
+  footer span { color: rgba(255,255,255,0.7); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * { animation: fadeUp 0.7s ease both; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+  .hero-right > * { animation: fadeUp 0.7s ease both; }
+  .hero-right > *:nth-child(2) { animation-delay: 0.35s; }
+  .hero-right > *:nth-child(3) { animation-delay: 0.5s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { min-height: 320px; }
+    .hero-left { padding: 4rem 2rem 3rem; }
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .summary-grid, .leadership-grid, .contact-grid { grid-template-columns: 1fr; }
+    .ip-grid { grid-template-columns: 1fr; }
+    .outreach-cards { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: 1fr; }
+    .section-inner { padding: 3.5rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">Shubhi Sharma</a>
+  <ul class="nav-links">
+    <li><a href="#summary">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Assistant Professor · Selection Grade</div>
+    <h1 class="hero-name">Shubhi<br><em>Sharma</em></h1>
+    <p class="hero-title">School of Computer Science, UPES Dehradun<br>Specialising in Deep Learning & Medical Image Analysis</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="dot"></span>
+        UPES, Dehradun, Uttarakhand, India
+      </div>
+      <div class="hero-meta-item">
+        <span class="dot"></span>
+        <a href="mailto:shubhi.sharma@ddn.upes.ac.in">shubhi.sharma@ddn.upes.ac.in</a>
+      </div>
+      <div class="hero-meta-item">
+        <span class="dot"></span>
+        <a href="https://linkedin.com/in/shubhi-sharma-6443a322" target="_blank">linkedin.com/in/shubhi-sharma-6443a322</a>
+      </div>
+      <div class="hero-meta-item">
+        <span class="dot"></span>
+        <a href="https://scholar.google.com/citations?user=ObFCPokAAAAJ" target="_blank">Google Scholar Profile</a>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="mailto:shubhi.sharma@ddn.upes.ac.in" class="btn-primary">Get in Touch</a>
+      <a href="https://scholar.google.com/citations?user=ObFCPokAAAAJ" target="_blank" class="btn-secondary">View Publications</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <p class="hero-right-quote">Advancing AI for healthcare through research, education, and innovation.</p>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years Teaching Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">13</div>
+        <div class="stat-label">Patents & Copyrights</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">7+</div>
+        <div class="stat-label">Years as CSI Coordinator</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">8.5</div>
+        <div class="stat-label">M.Tech CGPA (Distinction)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section id="summary">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Professional <em>Summary</em></h2>
+    </div>
+    <div class="summary-grid">
+      <div class="summary-text">
+        <p>An accomplished academic professional with over <strong>10 years of comprehensive experience</strong> in Computer Science and Artificial Intelligence education and research. Currently serving as Assistant Professor (Selection Grade) at UPES, Dehradun, with a distinguished record of contributions spanning teaching excellence, cutting-edge research, and institutional development.</p>
+        <p>Specialised expertise in <strong>deep learning, medical image analysis, and healthcare applications</strong> — particularly focused on breast cancer detection using mammography. Proven ability to lead interdisciplinary research initiatives, develop innovative curricula, and establish strategic academic–industry collaborations.</p>
+        <p>Demonstrated leadership in professional societies and institutional committees with a strong commitment to advancing computer science education and research excellence, including founding the women's empowerment initiative <strong>AadiShakti</strong> at UPES.</p>
+      </div>
+      <div class="strengths-list">
+        <div class="strength-item">
+          <h4>Teaching Excellence</h4>
+          <p>10+ years across UG & PG programs in AI, Deep Learning, Data Science</p>
+        </div>
+        <div class="strength-item">
+          <h4>Research Leadership</h4>
+          <p>Publications in medical imaging and AI with active citation record</p>
+        </div>
+        <div class="strength-item">
+          <h4>Academic Administration</h4>
+          <p>NBA/NAAC accreditation, curriculum development, OBE framework</p>
+        </div>
+        <div class="strength-item">
+          <h4>Student Mentorship</h4>
+          <p>Guided students for publications, hackathons, and placements</p>
+        </div>
+        <div class="strength-item">
+          <h4>Industry Collaboration</h4>
+          <p>Partnerships with Uttarakhand Police, CM Office, and IBM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Academic Background</div>
+      <h2 class="section-title"><em>Education</em></h2>
+    </div>
+    <div class="edu-card">
+      <div>
+        <div class="edu-degree">Master of Technology in Computer Science &amp; Engineering</div>
+        <div class="edu-institution">Indian Institute of Information Technology (IIIT), Jabalpur</div>
+        <div class="edu-details">
+          <span class="edu-badge badge-gold">🏆 Best Thesis Award</span>
+          <span class="edu-badge badge-teal">Distinction</span>
+          <span class="edu-badge badge-coral">Medical Image Processing</span>
+        </div>
+        <p style="margin-top:1.25rem; font-size:0.9rem; color:var(--ink-muted); line-height:1.7;">
+          Received the prestigious <strong style="color:var(--ink)">Best Thesis Award</strong> for outstanding research contribution and innovation in the field of medical image processing. Demonstrated consistent academic excellence throughout the programme.
+        </p>
+      </div>
+      <div class="edu-cgpa">
+        <div class="cgpa-number">8.5</div>
+        <div class="cgpa-label">CGPA / 10</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Career</div>
+      <h2 class="section-title">Professional <em>Experience</em></h2>
+    </div>
+    <div class="exp-timeline">
+
+      <div class="exp-item primary">
+        <div class="exp-meta">
+          <span class="exp-period">August 2017 – Present · 8+ years</span>
+          <span class="exp-badge">Current Role</span>
+        </div>
+        <div class="exp-role">Assistant Professor (Selection Grade)</div>
+        <div class="exp-org">University of Petroleum &amp; Energy Studies (UPES), Dehradun</div>
+        <div class="exp-desc">
+          Delivers a comprehensive range of UG and PG courses including Artificial Intelligence, Deep Learning, Machine Learning, Data Science, and Computer Vision. Implements innovative teaching methodologies including project-based learning, case studies, and hands-on laboratory sessions. Designed specialised course modules for emerging technologies in AI with healthcare applications.
+          <br><br>
+          Actively contributes to curriculum design, OBE framework implementation, NBA/NAAC accreditation, and multiple departmental committees (curriculum, examination, research). Supervises numerous UG/PG research projects, many resulting in publications at reputed venues.
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">AI & Deep Learning</span>
+          <span class="exp-tag">Curriculum Design</span>
+          <span class="exp-tag">Research Supervision</span>
+          <span class="exp-tag">OBE Framework</span>
+          <span class="exp-tag">NBA/NAAC</span>
+          <span class="exp-tag">Student Mentorship</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <span class="exp-period">January 2017 – July 2017 · 7 months</span>
+        </div>
+        <div class="exp-role">Assistant Professor</div>
+        <div class="exp-org">Galgotias University, Greater Noida</div>
+        <div class="exp-desc">Contributed to undergraduate teaching in Computer Science, delivering courses and mentoring students in technical subjects.</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <span class="exp-period">February 2015 – December 2016 · 23 months</span>
+        </div>
+        <div class="exp-role">Assistant Professor</div>
+        <div class="exp-org">National Institute of Technology (NIT) Delhi</div>
+        <div class="exp-desc">Taught Computer Science courses at one of India's premier technical institutions. Gained experience in research-intensive academic environments with high academic standards.</div>
+        <div class="exp-tags">
+          <span class="exp-tag">NIT System</span>
+          <span class="exp-tag">Technical Education</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Academic Focus</div>
+      <h2 class="section-title">Research <em>Interests</em></h2>
+    </div>
+    <div class="research-grid">
+      <div class="research-card">
+        <div class="research-icon">🧠</div>
+        <h3>Deep Learning</h3>
+        <p>Neural network architectures, convolutional models, and modern deep learning techniques for complex pattern recognition tasks.</p>
+      </div>
+      <div class="research-card">
+        <div class="research-icon">🏥</div>
+        <h3>Medical Image Analysis</h3>
+        <p>Automated analysis of medical imagery including mammography for breast cancer detection and diagnostic support systems.</p>
+      </div>
+      <div class="research-card">
+        <div class="research-icon">💡</div>
+        <h3>AI for Healthcare</h3>
+        <p>Applying artificial intelligence to clinical workflows, predictive diagnostics, and intelligent healthcare systems.</p>
+      </div>
+      <div class="research-card">
+        <div class="research-icon">🔬</div>
+        <h3>Theoretical CS</h3>
+        <p>Foundational aspects of computer science including algorithms, computational complexity, and formal methods.</p>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem; padding:1.75rem; background:var(--teal-light); border-radius:10px; border-left:3px solid var(--teal);">
+      <p style="font-size:0.9rem; color:var(--ink-muted); margin-bottom:0.5rem;">
+        <strong style="color:var(--ink)">Google Scholar Profile</strong>
+      </p>
+      <p style="font-size:0.85rem; color:var(--ink-muted);">
+        Active publication record with citations in medical imaging and AI domains. View full list of publications and citation metrics at:
+        <a href="https://scholar.google.com/citations?user=ObFCPokAAAAJ" target="_blank" style="color:var(--teal); font-weight:500;">scholar.google.com/citations?user=ObFCPokAAAAJ</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Intellectual Property & Certifications</div>
+      <h2 class="section-title">Achievements &amp; <em>Recognition</em></h2>
+    </div>
+
+    <div class="ip-grid">
+      <div class="ip-card gold">
+        <div class="ip-number">3</div>
+        <div class="ip-label">Utility Patents Granted</div>
+      </div>
+      <div class="ip-card teal">
+        <div class="ip-number">4</div>
+        <div class="ip-label">Design Patents Granted</div>
+      </div>
+      <div class="ip-card coral">
+        <div class="ip-number">6</div>
+        <div class="ip-label">Copyrights Granted</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--ink);margin-bottom:1.5rem;">Certifications &amp; Faculty Development</h3>
+    <div class="certs-grid">
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div>
+          <h4>PGCAP — Post Graduate Certificate in Academic Practice</h4>
+          <p>2019 · Comprehensive training in higher education pedagogy, curriculum design, assessment strategies, and academic leadership.</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div>
+          <h4>Abhigyat — Faculty Internship Program</h4>
+          <p>2018 · Industry immersion at Splash BI, Hyderabad, focusing on business intelligence, data analytics, and industry best practices.</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div>
+          <h4>Best Thesis Award — IIIT Jabalpur</h4>
+          <p>Prestigious award for outstanding research contribution and innovation in medical image processing during M.Tech programme.</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div>
+          <h4>Continuous Professional Development</h4>
+          <p>Regular participation in FDPs, workshops, and training sessions to maintain current technical, pedagogical, and research skills.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Service & Leadership</div>
+      <h2 class="section-title">Academic <em>Leadership</em></h2>
+    </div>
+    <div class="leadership-grid">
+      <div class="leadership-section">
+        <h3>Professional Society Roles</h3>
+        <div class="leadership-item">
+          <div class="lead-icon">🖥️</div>
+          <div>
+            <h4>Student Branch Coordinator — CSI, UPES</h4>
+            <p>7+ years of leadership organising technical events, workshops, certification programs, and student development initiatives for the Computer Society of India chapter.</p>
+          </div>
+        </div>
+        <div class="leadership-item">
+          <div class="lead-icon">⚡</div>
+          <div>
+            <h4>Faculty Advisor — IEEE Women in Engineering</h4>
+            <p>Promoting gender diversity in technology through mentorship programs, technical workshops, and career guidance for women students at UPES.</p>
+          </div>
+        </div>
+        <div class="leadership-item">
+          <div class="lead-icon">🔵</div>
+          <div>
+            <h4>IBM SPOC — School of Computer Science</h4>
+            <p>Single Point of Contact for IBM academic initiatives, coordinating industry-academia collaborations, certification programs, and technology training.</p>
+          </div>
+        </div>
+        <div class="leadership-item">
+          <div class="lead-icon">📋</div>
+          <div>
+            <h4>Proctor — UPES</h4>
+            <p>Student welfare and academic integrity responsibilities as institutional proctor.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="leadership-section">
+        <h3>Initiatives & Founding Roles</h3>
+        <div class="leadership-item">
+          <div class="lead-icon">🌸</div>
+          <div>
+            <h4>Founder — Women Club "AadiShakti" (2022)</h4>
+            <p>Established a dedicated platform for women empowerment, leadership development, and technical skill enhancement at UPES — a first-of-its-kind initiative at the institution.</p>
+          </div>
+        </div>
+        <div class="leadership-item">
+          <div class="lead-icon">💻</div>
+          <div>
+            <h4>Organiser — UPES CSI Hackathons</h4>
+            <p>Organised multiple editions of 24–48 hour coding marathons attracting student participants from across India.</p>
+          </div>
+        </div>
+        <div class="leadership-item">
+          <div class="lead-icon">🏛️</div>
+          <div>
+            <h4>Academic Committee Member</h4>
+            <p>Active participation in curriculum, examination, research, and quality assurance committees at department and school levels.</p>
+          </div>
+        </div>
+        <div class="leadership-item">
+          <div class="lead-icon">🎓</div>
+          <div>
+            <h4>Faculty Mentoring & New Faculty Orientation</h4>
+            <p>Leadership in institutional mentoring programs and onboarding of new faculty members.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTREACH -->
+<section id="outreach">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Collaborations</div>
+      <h2 class="section-title">Outreach &amp; <em>Partnerships</em></h2>
+    </div>
+    <div class="outreach-cards">
+      <div class="outreach-card">
+        <div class="outreach-card-top" style="background:var(--teal-light);">
+          <h3 style="color:var(--teal);">🚔 Uttarakhand Police</h3>
+        </div>
+        <div class="outreach-card-body">
+          <p>Collaborated with Uttarakhand Police for organising the <strong>Dev Bhoomi Cyber Hackathon (2021)</strong>, focusing on cybersecurity awareness and practical skill development for students and law enforcement.</p>
+        </div>
+      </div>
+      <div class="outreach-card">
+        <div class="outreach-card-top" style="background:var(--gold-light);">
+          <h3 style="color:var(--gold);">🏛️ State Government</h3>
+        </div>
+        <div class="outreach-card-body">
+          <p>Worked closely with the Uttarakhand Government to organise the <strong>first-ever AI-based state-level hackathon</strong>, promoting innovation in artificial intelligence across the state.</p>
+        </div>
+      </div>
+      <div class="outreach-card">
+        <div class="outreach-card-top" style="background:var(--coral-light);">
+          <h3 style="color:var(--coral);">🏢 CM Office</h3>
+        </div>
+        <div class="outreach-card-body">
+          <p>Academic outreach initiatives in collaboration with the <strong>Chief Minister's Office</strong> for technology education and public awareness around emerging AI technologies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Competencies</div>
+      <h2 class="section-title">Technical &amp; Professional <em>Skills</em></h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>AI & Machine Learning</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Deep Learning</span>
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">Computer Vision</span>
+          <span class="skill-tag">Medical Image Analysis</span>
+          <span class="skill-tag">Explainable AI</span>
+          <span class="skill-tag">Neural Networks</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Research Areas</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Breast Cancer Detection</span>
+          <span class="skill-tag">Mammography Analysis</span>
+          <span class="skill-tag">AI for Healthcare</span>
+          <span class="skill-tag">Theoretical CS</span>
+          <span class="skill-tag">Data Science</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Academic Skills</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Curriculum Design</span>
+          <span class="skill-tag">OBE Framework</span>
+          <span class="skill-tag">NBA / NAAC Accreditation</span>
+          <span class="skill-tag">Research Supervision</span>
+          <span class="skill-tag">Academic Writing</span>
+          <span class="skill-tag">Patent Filing</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Leadership & Management</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Event Management</span>
+          <span class="skill-tag">Faculty Development</span>
+          <span class="skill-tag">Student Mentorship</span>
+          <span class="skill-tag">Industry Liaison</span>
+          <span class="skill-tag">Committee Leadership</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">English — Professional</span>
+          <span class="skill-tag">Hindi — Native</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label" style="color:rgba(255,255,255,0.6);">Let's Connect</div>
+      <h2 class="section-title" style="color:#fff;">Get in <em style="color:rgba(255,255,255,0.65);">Touch</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>Open to research collaborations, academic partnerships, speaking opportunities, and discussions around AI in healthcare and computer science education.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div class="contact-item-text">
+              <span>Email</span>
+              <a href="mailto:shubhi.sharma@ddn.upes.ac.in">shubhi.sharma@ddn.upes.ac.in</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-text">
+              <span>Phone</span>
+              <p class="ci">+91-7409969193</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🔗</div>
+            <div class="contact-item-text">
+              <span>LinkedIn</span>
+              <a href="https://linkedin.com/in/shubhi-sharma-6443a322" target="_blank">linkedin.com/in/shubhi-sharma-6443a322</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <span>Location</span>
+              <p class="ci">UPES, Dehradun, Uttarakhand, India</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3>Research Collaboration</h3>
+        <p>Interested in working together on AI for healthcare, deep learning research, or academic exchange? I'd love to hear from you.</p>
+        <a href="mailto:shubhi.sharma@ddn.upes.ac.in" class="btn-white">Send a Message →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>Shubhi Sharma</span> · Assistant Professor (Selection Grade) · School of Computer Science, UPES Dehradun &nbsp;|&nbsp; © 2025
+</footer>
+
+</body>
+</html>
