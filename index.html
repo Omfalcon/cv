@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shubhi Sharma — Academic Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -216,9 +217,51 @@
   }
   .edu-institution { font-size: 1rem; color: var(--teal); font-weight: 500; margin-bottom: 1rem; }
   .edu-details { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  i[data-lucide] {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
+  }
+
+  .research-icon i[data-lucide],
+  .lead-icon i[data-lucide],
+  .contact-item-icon i[data-lucide] {
+    width: 20px;
+    height: 20px;
+  }
+
+  .edu-badge i[data-lucide] {
+    width: 14px;
+    height: 14px;
+    margin-right: 0.35rem;
+    vertical-align: middle;
+  }
+
+  .outreach-card-top h3 i[data-lucide] {
+    width: 18px;
+    height: 18px;
+  }
+
+  .lead-icon,
+  .research-icon,
+  .contact-item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .edu-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     font-size: 0.78rem; padding: 0.3rem 0.85rem;
     border-radius: 20px; font-weight: 500; letter-spacing: 0.03em;
+  }
+
+  .outreach-card-top h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
   .badge-gold { background: var(--gold-light); color: var(--gold); }
   .badge-teal { background: var(--teal-light); color: var(--teal); }
@@ -575,7 +618,10 @@
         <div class="edu-degree">Master of Technology in Computer Science &amp; Engineering</div>
         <div class="edu-institution">Indian Institute of Information Technology (IIIT), Jabalpur</div>
         <div class="edu-details">
-          <span class="edu-badge badge-gold">🏆 Best Thesis Award</span>
+          <span class="edu-badge badge-gold">
+            <i data-lucide="trophy"></i>
+            Best Thesis Award
+          </span>
           <span class="edu-badge badge-teal">Distinction</span>
           <span class="edu-badge badge-coral">Medical Image Processing</span>
         </div>
@@ -657,22 +703,30 @@
     </div>
     <div class="research-grid">
       <div class="research-card">
-        <div class="research-icon">🧠</div>
+        <div class="research-icon">
+          <i data-lucide="brain"></i>
+        </div>
         <h3>Deep Learning</h3>
         <p>Neural network architectures, convolutional models, and modern deep learning techniques for complex pattern recognition tasks.</p>
       </div>
       <div class="research-card">
-        <div class="research-icon">🏥</div>
+        <div class="research-icon">
+          <i data-lucide="hospital"></i>
+        </div>
         <h3>Medical Image Analysis</h3>
         <p>Automated analysis of medical imagery including mammography for breast cancer detection and diagnostic support systems.</p>
       </div>
       <div class="research-card">
-        <div class="research-icon">💡</div>
+        <div class="research-icon">
+          <i data-lucide="lightbulb"></i>
+        </div>
         <h3>AI for Healthcare</h3>
         <p>Applying artificial intelligence to clinical workflows, predictive diagnostics, and intelligent healthcare systems.</p>
       </div>
       <div class="research-card">
-        <div class="research-icon">🔬</div>
+        <div class="research-icon">
+          <i data-lucide="microscope"></i>
+        </div>
         <h3>Theoretical CS</h3>
         <p>Foundational aspects of computer science including algorithms, computational complexity, and formal methods.</p>
       </div>
@@ -757,28 +811,36 @@
       <div class="leadership-section">
         <h3>Professional Society Roles</h3>
         <div class="leadership-item">
-          <div class="lead-icon">🖥️</div>
+          <div class="lead-icon">
+            <i data-lucide="monitor"></i>
+          </div>
           <div>
             <h4>Student Branch Coordinator — CSI, UPES</h4>
             <p>7+ years of leadership organising technical events, workshops, certification programs, and student development initiatives for the Computer Society of India chapter.</p>
           </div>
         </div>
         <div class="leadership-item">
-          <div class="lead-icon">⚡</div>
+          <div class="lead-icon">
+            <i data-lucide="zap"></i>
+          </div>
           <div>
             <h4>Faculty Advisor — IEEE Women in Engineering</h4>
             <p>Promoting gender diversity in technology through mentorship programs, technical workshops, and career guidance for women students at UPES.</p>
           </div>
         </div>
         <div class="leadership-item">
-          <div class="lead-icon">🔵</div>
+          <div class="lead-icon">
+            <i data-lucide="badge-info"></i>
+          </div>
           <div>
             <h4>IBM SPOC — School of Computer Science</h4>
             <p>Single Point of Contact for IBM academic initiatives, coordinating industry-academia collaborations, certification programs, and technology training.</p>
           </div>
         </div>
         <div class="leadership-item">
-          <div class="lead-icon">📋</div>
+          <div class="lead-icon">
+            <i data-lucide="clipboard-list"></i>
+          </div>
           <div>
             <h4>Proctor — UPES</h4>
             <p>Student welfare and academic integrity responsibilities as institutional proctor.</p>
@@ -789,28 +851,36 @@
       <div class="leadership-section">
         <h3>Initiatives & Founding Roles</h3>
         <div class="leadership-item">
-          <div class="lead-icon">🌸</div>
+          <div class="lead-icon">
+            <i data-lucide="flower-2"></i>
+          </div>
           <div>
             <h4>Founder — Women Club "AadiShakti" (2022)</h4>
             <p>Established a dedicated platform for women empowerment, leadership development, and technical skill enhancement at UPES — a first-of-its-kind initiative at the institution.</p>
           </div>
         </div>
         <div class="leadership-item">
-          <div class="lead-icon">💻</div>
+          <div class="lead-icon">
+            <i data-lucide="laptop"></i>
+          </div>
           <div>
             <h4>Organiser — UPES CSI Hackathons</h4>
             <p>Organised multiple editions of 24–48 hour coding marathons attracting student participants from across India.</p>
           </div>
         </div>
         <div class="leadership-item">
-          <div class="lead-icon">🏛️</div>
+          <div class="lead-icon">
+            <i data-lucide="landmark"></i>
+          </div>
           <div>
             <h4>Academic Committee Member</h4>
             <p>Active participation in curriculum, examination, research, and quality assurance committees at department and school levels.</p>
           </div>
         </div>
         <div class="leadership-item">
-          <div class="lead-icon">🎓</div>
+          <div class="lead-icon">
+            <i data-lucide="graduation-cap"></i>
+          </div>
           <div>
             <h4>Faculty Mentoring & New Faculty Orientation</h4>
             <p>Leadership in institutional mentoring programs and onboarding of new faculty members.</p>
@@ -831,7 +901,10 @@
     <div class="outreach-cards">
       <div class="outreach-card">
         <div class="outreach-card-top" style="background:var(--teal-light);">
-          <h3 style="color:var(--teal);">🚔 Uttarakhand Police</h3>
+          <h3 style="color:var(--teal);">
+            <i data-lucide="shield"></i>
+            Uttarakhand Police
+          </h3>
         </div>
         <div class="outreach-card-body">
           <p>Collaborated with Uttarakhand Police for organising the <strong>Dev Bhoomi Cyber Hackathon (2021)</strong>, focusing on cybersecurity awareness and practical skill development for students and law enforcement.</p>
@@ -839,7 +912,10 @@
       </div>
       <div class="outreach-card">
         <div class="outreach-card-top" style="background:var(--gold-light);">
-          <h3 style="color:var(--gold);">🏛️ State Government</h3>
+          <h3 style="color:var(--gold);">
+            <i data-lucide="landmark"></i>
+            State Government
+          </h3>
         </div>
         <div class="outreach-card-body">
           <p>Worked closely with the Uttarakhand Government to organise the <strong>first-ever AI-based state-level hackathon</strong>, promoting innovation in artificial intelligence across the state.</p>
@@ -847,7 +923,10 @@
       </div>
       <div class="outreach-card">
         <div class="outreach-card-top" style="background:var(--coral-light);">
-          <h3 style="color:var(--coral);">🏢 CM Office</h3>
+          <h3 style="color:var(--coral);">
+            <i data-lucide="building-2"></i>
+            CM Office
+          </h3>
         </div>
         <div class="outreach-card-body">
           <p>Academic outreach initiatives in collaboration with the <strong>Chief Minister's Office</strong> for technology education and public awareness around emerging AI technologies.</p>
@@ -930,28 +1009,36 @@
         <p>Open to research collaborations, academic partnerships, speaking opportunities, and discussions around AI in healthcare and computer science education.</p>
         <div class="contact-items">
           <div class="contact-item">
-            <div class="contact-item-icon">✉️</div>
+            <div class="contact-item-icon">
+              <i data-lucide="mail"></i>
+            </div>
             <div class="contact-item-text">
               <span>Email</span>
               <a href="mailto:shubhi.sharma@ddn.upes.ac.in">shubhi.sharma@ddn.upes.ac.in</a>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-icon">
+              <i data-lucide="phone"></i>
+            </div>
             <div class="contact-item-text">
               <span>Phone</span>
               <p class="ci">+91-7409969193</p>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-item-icon">🔗</div>
+            <div class="contact-item-icon">
+              <i data-lucide="link"></i>
+            </div>
             <div class="contact-item-text">
               <span>LinkedIn</span>
               <a href="https://linkedin.com/in/shubhi-sharma-6443a322" target="_blank">linkedin.com/in/shubhi-sharma-6443a322</a>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-icon">
+              <i data-lucide="map-pin"></i>
+            </div>
             <div class="contact-item-text">
               <span>Location</span>
               <p class="ci">UPES, Dehradun, Uttarakhand, India</p>
@@ -968,9 +1055,13 @@
   </div>
 </section>
 
+<script>
+  lucide.createIcons();
+</script>
+
 <!-- FOOTER -->
 <footer>
-  <span>Shubhi Sharma</span> ·Associate Professor · School of Computer Science, UPES Dehradun &nbsp;|&nbsp; © 2025
+  <span>Shubhi Sharma</span> ·Associate Professor · School of Computer Science, UPES Dehradun &nbsp;|&nbsp; © 2026
 </footer>
 
 </body>
