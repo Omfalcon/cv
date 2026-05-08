@@ -58,6 +58,17 @@
   }
   .nav-links a:hover { color: var(--teal); }
 
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--ink);
+    cursor: pointer;
+    padding: 0.65rem;
+    border-radius: 999px;
+  }
+  .nav-toggle:hover { background: rgba(26,23,20,0.05); }
+
   /* HERO */
   .hero {
     padding-top: 60px;
@@ -488,8 +499,31 @@
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-right { min-height: 320px; }
     .hero-left { padding: 4rem 2rem 3rem; }
-    nav { padding: 0 1.5rem; }
-    .nav-links { display: none; }
+    nav { padding: 0 1.25rem; }
+    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+    .nav-links {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: rgba(250,248,243,0.97);
+      flex-direction: column;
+      gap: 0;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links.open {
+      max-height: 480px;
+    }
+    .nav-links li { border-top: 1px solid var(--border); }
+    .nav-links a {
+      padding: 1rem 1.5rem;
+      display: block;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
     .summary-grid, .leadership-grid, .contact-grid { grid-template-columns: 1fr; }
     .ip-grid { grid-template-columns: 1fr; }
     .outreach-cards { grid-template-columns: 1fr; }
@@ -503,6 +537,9 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-brand">Shubhi Sharma</a>
+  <button type="button" class="nav-toggle" aria-label="Toggle navigation">
+    <i data-lucide="menu"></i>
+  </button>
   <ul class="nav-links">
     <li><a href="#summary">About</a></li>
     <li><a href="#education">Education</a></li>
@@ -1057,6 +1094,11 @@
 
 <script>
   lucide.createIcons();
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle?.addEventListener('click', () => {
+    navLinks?.classList.toggle('open');
+  });
 </script>
 
 <!-- FOOTER -->
