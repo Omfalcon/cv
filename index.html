@@ -10,20 +10,31 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --cream: #FAF8F3;
-    --cream-dark: #F0EDE4;
-    --ink: #1A1714;
-    --ink-muted: #6B6560;
-    --ink-light: #9E9890;
-    --teal: #0F6E56;
-    --teal-light: #E1F5EE;
-    --teal-mid: #1D9E75;
-    --gold: #BA7517;
-    --gold-light: #FAEEDA;
-    --coral: #D85A30;
-    --coral-light: #FAECE7;
-    --border: rgba(26,23,20,0.10);
-    --border-strong: rgba(26,23,20,0.18);
+    /* Surfaces */
+    --cream: #F0F5FC;
+    --cream-dark: #E2EAF6;
+
+    /* Text */
+    --ink: #0D1B2E;
+    --ink-muted: #4A5A72;
+    --ink-light: #7E92AB;
+
+    /* Primary — deep azure blue */
+    --teal: #1565C0;
+    --teal-light: #DDEEFF;
+    --teal-mid: #2196F3;
+
+    /* Accent 1 — slate gold → replaced with sky accent */
+    --gold: #0277BD;
+    --gold-light: #E1F5FE;
+
+    /* Accent 2 — coral → replaced with soft violet-blue */
+    --coral: #1976D2;
+    --coral-light: #E3EEFF;
+
+    /* Borders */
+    --border: rgba(21,101,192,0.10);
+    --border-strong: rgba(21,101,192,0.22);
   }
 
   html { scroll-behavior: smooth; }
@@ -39,7 +50,7 @@
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(250,248,243,0.92);
+    background: rgba(240,245,252,0.92);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     display: flex; align-items: center; justify-content: space-between;
@@ -67,7 +78,7 @@
     padding: 0.65rem;
     border-radius: 999px;
   }
-  .nav-toggle:hover { background: rgba(26,23,20,0.05); }
+  .nav-toggle:hover { background: rgba(21,101,192,0.08); }
 
   /* HERO */
   .hero {
@@ -121,7 +132,7 @@
     text-decoration: none; display: inline-block;
     transition: background 0.2s, transform 0.15s;
   }
-  .btn-primary:hover { background: #0F6E56; transform: translateY(-1px); }
+  .btn-primary:hover { background: #0D47A1; transform: translateY(-1px); }
   .btn-secondary {
     background: transparent; color: var(--ink);
     border: 1px solid var(--border-strong); border-radius: 4px;
@@ -134,15 +145,15 @@
   .btn-secondary:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-1px); }
 
   .hero-right {
-    background: var(--teal);
+    background: linear-gradient(145deg, #1565C0 0%, #0D47A1 100%);
     position: relative; overflow: hidden;
     display: flex; flex-direction: column; justify-content: flex-end; padding: 4rem;
   }
   .hero-right-bg {
     position: absolute; inset: 0;
     background: 
-      radial-gradient(ellipse at 80% 20%, rgba(29,158,117,0.4) 0%, transparent 60%),
-      radial-gradient(ellipse at 20% 80%, rgba(8,80,65,0.6) 0%, transparent 60%);
+      radial-gradient(ellipse at 80% 20%, rgba(33,150,243,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(13,71,161,0.65) 0%, transparent 60%);
   }
   .hero-stats {
     position: relative; z-index: 1;
@@ -404,7 +415,7 @@
 
   /* OUTREACH */
   #outreach { background: var(--cream); }
-  .outreach-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .outreach-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   .outreach-card {
     border: 1px solid var(--border); border-radius: 10px;
     overflow: hidden;
@@ -461,7 +472,7 @@
   }
   .contact-card p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 2rem; line-height: 1.7; }
   .contact-card .btn-white {
-    background: #fff; color: var(--teal);
+    background: #fff; color: #1565C0;
     border: none; border-radius: 4px;
     padding: 0.75rem 2rem; font-size: 0.85rem;
     font-family: 'DM Sans', sans-serif; font-weight: 500;
@@ -473,7 +484,7 @@
 
   /* FOOTER */
   footer {
-    background: var(--ink); color: rgba(255,255,255,0.45);
+    background: #0D1B2E; color: rgba(255,255,255,0.45);
     text-align: center; padding: 2rem;
     font-size: 0.82rem;
   }
@@ -506,7 +517,7 @@
       top: 60px;
       left: 0;
       right: 0;
-      background: rgba(250,248,243,0.97);
+      background: rgba(240,245,252,0.97);
       flex-direction: column;
       gap: 0;
       overflow: hidden;
@@ -556,7 +567,7 @@
   <div class="hero-left">
     <div class="hero-eyebrow">Associate Professor</div>
     <h1 class="hero-name">Shubhi<br><em>Sharma</em></h1>
-    <p class="hero-title">School of Computer Science, UPES Dehradun<br>Specialising in Deep Learning & Medical Image Analysis</p>
+    <p class="hero-title">School of Computer Science, UPES Dehradun<br>Specialising in Deep Learning, Medical Image Analysis &amp; Explainable AI</p>
     <div class="hero-meta">
       <div class="hero-meta-item">
         <span class="dot"></span>
@@ -585,7 +596,7 @@
     <p class="hero-right-quote">Advancing AI for healthcare through research, education, and innovation.</p>
     <div class="hero-stats">
       <div class="stat-card">
-        <div class="stat-number">10+</div>
+        <div class="stat-number">12+</div>
         <div class="stat-label">Years Teaching Experience</div>
       </div>
       <div class="stat-card">
@@ -650,6 +661,16 @@
       <div class="section-label">Academic Background</div>
       <h2 class="section-title"><em>Education</em></h2>
     </div>
+    <div class="edu-card" style="margin-bottom:1.5rem;">
+      <div>
+        <div class="edu-degree">Doctor of Philosophy (PhD) in Computer Science &amp; Engineering</div>
+        <div class="edu-institution">Ongoing — Artificial Intelligence &amp; Deep Learning Focus</div>
+        <div class="edu-details">
+          <span class="edu-badge badge-teal">AI &amp; Deep Learning</span>
+          <span class="edu-badge badge-gold">Medical Image Analysis</span>
+        </div>
+      </div>
+    </div>
     <div class="edu-card">
       <div>
         <div class="edu-degree">Master of Technology in Computer Science &amp; Engineering</div>
@@ -685,8 +706,24 @@
 
       <div class="exp-item primary">
         <div class="exp-meta">
-          <span class="exp-period">August 2017 – Present · 8+ years</span>
+          <span class="exp-period">December 2025 – Present · &lt;1 year</span>
           <span class="exp-badge">Current Role</span>
+        </div>
+        <div class="exp-role">Associate Professor (Selection Grade)</div>
+        <div class="exp-org">University of Petroleum &amp; Energy Studies (UPES), Dehradun</div>
+        <div class="exp-desc">
+          Promoted to Associate Professor (Selection Grade) in recognition of sustained excellence in teaching, research output, and institutional contributions. Continues to lead AI and Deep Learning courses at UG and PG levels, supervise research projects, and drive academic quality initiatives.
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Associate Professor</span>
+          <span class="exp-tag">AI &amp; Deep Learning</span>
+          <span class="exp-tag">Research Leadership</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <span class="exp-period">August 2017 – December 2025 · 8+ years</span>
         </div>
         <div class="exp-role">Assistant Professor (Selection Grade)</div>
         <div class="exp-org">University of Petroleum &amp; Energy Studies (UPES), Dehradun</div>
@@ -907,6 +944,15 @@
         </div>
         <div class="leadership-item">
           <div class="lead-icon">
+            <i data-lucide="presentation"></i>
+          </div>
+          <div>
+            <h4>Organiser &amp; Committee Member — National/International Conferences</h4>
+            <p>Active involvement in organising and serving on programme committees for national and international academic conferences in Computer Science and AI.</p>
+          </div>
+        </div>
+        <div class="leadership-item">
+          <div class="lead-icon">
             <i data-lucide="landmark"></i>
           </div>
           <div>
@@ -967,6 +1013,17 @@
         </div>
         <div class="outreach-card-body">
           <p>Academic outreach initiatives in collaboration with the <strong>Chief Minister's Office</strong> for technology education and public awareness around emerging AI technologies.</p>
+        </div>
+      </div>
+      <div class="outreach-card">
+        <div class="outreach-card-top" style="background:var(--teal-light);">
+          <h3 style="color:var(--teal);">
+            <i data-lucide="users"></i>
+            Community Engagement
+          </h3>
+        </div>
+        <div class="outreach-card-body">
+          <p>Active community outreach through <strong>school programmes</strong>, industry–academia meets, and alumni mentoring initiatives — bridging academia with the broader community.</p>
         </div>
       </div>
     </div>
